@@ -7,6 +7,10 @@ namespace CAlculator_Project_abu_hasnat
             InitializeComponent();
         }
 
+        int numOne;
+        int numTwo;
+        int equals;
+
         private void numberOne_Click(object sender, EventArgs e)
         {
             resultWindow.Text = resultWindow.Text + numberOne.Text;
@@ -65,26 +69,66 @@ namespace CAlculator_Project_abu_hasnat
         private void plusButton_Click(object sender, EventArgs e)
         {
             operatorWindow.Text =  plusButton.Text;
+            numOne = int.Parse(resultWindow.Text);
+            resultWindow.Text = null;
         }
 
         private void minusButton_Click(object sender, EventArgs e)
         {
             operatorWindow.Text =  minusButton.Text;
+            numOne = int.Parse(resultWindow.Text);
+            resultWindow.Text = null;
         }
 
         private void multiplyButton_Click(object sender, EventArgs e)
         {
             operatorWindow.Text =  multiplyButton.Text;
+            numOne = int.Parse(resultWindow.Text);
+            resultWindow.Text = null;
         }
 
         private void divideButton_Click(object sender, EventArgs e)
         {
             operatorWindow.Text =  divideButton.Text;
+            numOne = int.Parse(resultWindow.Text);
+            resultWindow.Text = null;
         }
 
         private void clearButton_Click(object sender, EventArgs e)
         {
             resultWindow.Text = null;
+            operatorWindow.Text = null;
+        }
+
+        private void equalButton_Click(object sender, EventArgs e)
+        {
+            numTwo = int.Parse(resultWindow.Text);
+
+            if(operatorWindow.Text == "+")
+            {
+                equals = numOne + numTwo;
+                resultWindow.Text = equals.ToString();
+            }
+            else if (operatorWindow.Text == "-")
+            {
+                equals = numOne - numTwo;
+                resultWindow.Text = equals.ToString();
+            }
+            else if (operatorWindow.Text == "*")
+            {
+                equals = numOne * numTwo;
+                resultWindow.Text = equals.ToString();
+            }
+            else if (operatorWindow.Text == "/")
+            {
+                equals = (numOne / numTwo);
+                resultWindow.Text = equals.ToString();
+            }
+            else
+            {
+                resultWindow.Text = null;
+            }
+
         }
     }
 }
